@@ -5,6 +5,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 
 import postsRoutes from "./routes/posts.js";
+import userRoutes from "./routes/users.js";
 
 const app = express()
 dotenv.config()
@@ -16,9 +17,7 @@ app.use(express.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors())
 
 app.use('/posts', postsRoutes)
-app.use('/', (req, res) => {
-    res.send('Bienvenue sur mon API')
-})
+app.use('/users', userRoutes)
 //https://mongodb.com/cloud/atlas
 
 // const CONNECTION_URL = "mongodb+srv://billgate:rQDee6uZN3G04ATp@cluster0.gmqfo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
